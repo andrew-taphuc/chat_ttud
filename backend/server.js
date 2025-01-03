@@ -24,6 +24,10 @@ const messageSchema = new mongoose.Schema({
 
 const Message = mongoose.model('Message', messageSchema);
 
+app.get('/api', (req, res) => {
+    res.send('API is running!');
+});
+
 app.get('/api/messages', async (req, res) => {
     try {
         const messages = await Message.find().sort({ timestamp: -1 });
@@ -68,6 +72,7 @@ app.delete('/api/messages', async (req, res) => {
     }
 });
 
-app.listen(5001, () => {
-    console.log('Server running on port 5001');
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
