@@ -9,7 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 // Replace this connection string with your actual MongoDB Atlas connection string
-const MONGODB_URI = 'mongodb+srv://taphuc1:phucxxxx@ttud.0z7xz.mongodb.net/?retryWrites=true&w=majority&appName=ttud';
+// const MONGODB_URI = 'mongodb+srv://taphuc1:phucxxxx@ttud.0z7xz.mongodb.net/?retryWrites=true&w=majority&appName=ttud';
+const MONGODB_URI = process.env.MONGODB_URI;
+
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
